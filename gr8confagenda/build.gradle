@@ -4,8 +4,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.11.+'
-        classpath 'me.champeau.gradle:gradle-groovy-android-plugin:0.2.1'
+        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath 'org.codehaus.groovy:gradle-groovy-android-plugin:0.3.5'
     }
 }
 
@@ -33,11 +33,11 @@ android {
 
     buildTypes {
         debug {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
         release {
-            runProguard true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
             signingConfig signingConfigs.release
         }
@@ -49,7 +49,7 @@ android {
         exclude 'META-INF/groovy-release-info.properties'
     }
 }
-apply plugin: 'me.champeau.gradle.groovy-android'
+apply plugin: 'groovyx.grooid.groovy-android'
 
 repositories {
     jcenter()
@@ -57,8 +57,8 @@ repositories {
 
 dependencies {
     compile 'com.android.support:support-v4:19.1.0'
-    compile 'org.codehaus.groovy:groovy:2.4.0-beta-1:grooid'
-    compile ('org.codehaus.groovy:groovy-json:2.4.0-beta-1') {
+    compile 'org.codehaus.groovy:groovy:2.4.1:grooid'
+    compile ('org.codehaus.groovy:groovy-json:2.4.1') {
         transitive = false
     }
     compile 'com.koushikdutta.urlimageviewhelper:urlimageviewhelper:1.0.4'
